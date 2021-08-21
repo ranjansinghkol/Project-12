@@ -1,6 +1,6 @@
 var garden, rabbit;
 var gardenImg, rabbitImg;
-var leaf, leafImg;
+var leaf, leafImg, orangeLeaf;
 var apple, appleImg;
 
 var rand_sprite;
@@ -10,6 +10,7 @@ function preload(){
   rabbitImg = loadImage("rabbit.png");
   leafImg = loadImage("leaf.png");
   appleImg = loadImage("apple.png");
+  orangeLeaf = loadImage("orangeLeaf.png");
 }
 
 function setup(){
@@ -51,7 +52,15 @@ function draw() {
 function createLeaves(){
   if(frameCount%80===0){
     leaf = createSprite(random(50, 350), 40, 10, 10);
-    leaf.addImage(leafImg);
+    var leafImgs = Math.round(random(1,2));
+    if(leafImgs==1){
+      leaf.addImage(leafImg)
+      leafImgs = Math.round(random(1,2));
+    }
+    else if(leafImgs==2){
+      leaf.addImage(orangeLeaf);
+      leafImgs = Math.round(random(1,2));
+    }
     leaf.scale = 0.1;
     leaf.velocityY = 2;
     leaf.depth = rabbit.depth;
