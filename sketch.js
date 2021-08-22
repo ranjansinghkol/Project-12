@@ -36,15 +36,9 @@ function draw() {
 
   rabbit.x = mouseX;
 
-  rand_sprite = Math.round(random(1, 2));
-  if(rand_sprite==1){
-    createLeaves();
-    rand_sprite = Math.round(random(1, 2));
-  }
-  else if(rand_sprite==2){
-    createApples();
-    rand_sprite = Math.round(random(1, 2));
-  }
+  createLeaves();
+  createApples();
+  
 
   drawSprites();
 }
