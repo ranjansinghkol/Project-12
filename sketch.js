@@ -50,21 +50,26 @@ function draw() {
 }
 
 function createLeaves(){
+  var leafImgs = Math.round(random(1,2));
   if(frameCount%80===0){
-    leaf = createSprite(random(50, 350), 40, 10, 10);
-    var leafImgs = Math.round(random(1,2));
     if(leafImgs==1){
+      leaf = createSprite(random(50, 350), 40, 10, 10);
       leaf.addImage(leafImg)
       leafImgs = Math.round(random(1,2));
+      leaf.scale = 0.1;
+      leaf.velocityY = 2;
+      leaf.depth = rabbit.depth;
+      rabbit.depth ++;
     }
     else if(leafImgs==2){
+      leaf = createSprite(random(50, 350), 40, 10, 10);
       leaf.addImage(orangeLeaf);
       leafImgs = Math.round(random(1,2));
+      leaf.scale = 0.1;
+      leaf.velocityY = 2;
+      leaf.depth = rabbit.depth;
+      rabbit.depth ++;
     }
-    leaf.scale = 0.1;
-    leaf.velocityY = 2;
-    leaf.depth = rabbit.depth;
-    rabbit.depth ++;
   }
 }
 
